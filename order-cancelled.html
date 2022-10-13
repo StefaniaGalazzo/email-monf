@@ -738,7 +738,7 @@
           <tr>
             <td class="w-148px xs-w-88px xs-flex">
               <img
-                src="../../images/mfb-sample-bike.png"
+                src="${line.product_id.get_main_image_url()}"
                 class="w-full h-full object-cover xs-ml-6 xs-mt-3"
                 alt="${line.product_id.main_image.alt}"
               />
@@ -787,16 +787,6 @@
             </td>
           </tr>
           % endfor
-
-          <tr>
-            <td colspan="3" class="xs-flex hidden mt-4">
-              <span
-                class="text-primary-900 font-semibold font-barlow text-body-l my-0"
-              >
-                €3.299,00
-              </span>
-            </td>
-          </tr>
 
           <tr>
             <td colspan="3" class="pt-12 xs-pt-10">
@@ -861,16 +851,25 @@
 
           <tr class="font-barlow">
             <td colspan="2" class="text-neutral-700 text-body-m font-normal">
+              % if object.ecommerce_payment_method_id.type == 'bank':
               <p class="my-0">
                 Bonifico
                 <br />
                 <br />
                 Invia il pagamento tramite il tuo home banking.
                 <br />
-                <span class="font-bold">Causale</span>: Ordine e-bike<br />
-                <span class="font-bold">Destinatario</span>: Monferrato Bike<br />
-                <span class="font-bold">IBAN</span>: IT88A0306901651000050570131
+                <span class="font-bold">Causale</span>:
+                ${object.ecommerce_payment_method_id.bank_options.causal}<br />
+                <span class="font-bold">Destinatario</span>:
+                ${object.ecommerce_payment_method_id.bank_options.recipient}<br />
+                <span class="font-bold">IBAN</span>:
+                ${object.ecommerce_payment_method_id.bank_options.iban}
+                <br />
+                % endif
               </p>
+              % if object.ecommerce_payment_method_id.type == 'direct':
+              <p class="my-0">Paypal</p>
+              % endif
               <p
                 class="hidden xs-block text-primary-900 font-semibold text-body-l"
               >

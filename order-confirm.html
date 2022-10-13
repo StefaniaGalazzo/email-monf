@@ -563,10 +563,7 @@
   }
 </style>
 
-<div class="hidden">
-  Ciao undefined}, il tuo ordine è stato confermato ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
-  ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
-  ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏ ͏
+
 </div>
 <table
   class="w-full bg-white py-6"
@@ -707,7 +704,7 @@
           <p
             class="font-barlow font-normal text-body-m text-center m-3 text-black"
           >
-            Grazie <b>undefined</b>, abbiamo ricevuto il tuo ordine e lo stiamo
+            Grazie <b>${object.partner_invoice_id.firstname}</b>, abbiamo ricevuto il tuo ordine e lo stiamo
             preparando. Puoi controllare lo stato dell'ordine dal
             tuo&nbsp;profilo.
           </p>
@@ -751,7 +748,7 @@
           <p
             class="text-heading-s xs-text-heading-xs text-primary-700 xs-text-primary-900 font-bold uppercase italic font-archivo"
           >
-            Riepilogo ordine n°undefined
+            Riepilogo ordine n°{object.name}
           </p>
         </td>
       </tr>
@@ -774,58 +771,59 @@
         </td>
       </tr>
 
-      <tr>
-        <td class="w-148px xs-w-88px xs-flex">
-          <img
-            src="../../images/mfb-sample-bike.png"
-            class="w-full h-full object-cover xs-ml-6 xs-mt-3"
-            alt="Bicicletta"
-          />
-        </td>
-        <td class="pl-3 xs-pl-12px">
-          <div class="font-archivo uppercase font-bold mb-1">
+      % for line in object.order_line:
+        <tr>
+          <td class="w-148px xs-w-88px xs-flex">
+            <img
+              src="${line.product_id.get_main_image_url()}"
+              class="w-full h-full object-cover xs-ml-6 xs-mt-3"
+              alt="${line.product_id.main_image.alt}"
+            />
+          </td>
+
+          <td class="pl-3 xs-pl-12px">
+            <div class="font-archivo uppercase font-bold mb-1">
+              <p
+                class="text-heading-xs text-primary-900 uppercase italic font-bold my-0"
+              >
+                ${line.product_id.name}
+              </p>
+              <p class="text-label-s text-primary-900 my-0">
+                ${line.product_id.product_brand_id.name}
+              </p>
+              <p class="text-neutral-500 mt-1 mb-0">
+                ${line.product_id.default_code}
+              </p>
+            </div>
+            <div class="font-bold font-barlow italic uppercase">
+              <p class="text-neutral-700 my-0">
+                taglia:
+                <span class="text-primary-900"
+                  >${line.product_id.ecommerce_variant_id.size.name}</span
+                >
+              </p>
+              <p class="text-neutral-700 my-0">
+                colore:
+                <span class="text-primary-900"
+                  >${line.product_id.ecommerce_variant_id.color.name}</span
+                >
+              </p>
+              <p class="text-neutral-700 my-0">
+                quantità:
+                <span class="text-primary-900">${line.product_uom_qty}</span>
+              </p>
+            </div>
+          </td>
+
+          <td class="flex xs-hidden">
             <p
-              class="text-heading-xs text-primary-900 uppercase italic font-bold my-0"
+              class="text-primary-900 font-semibold font-barlow text-body-l my-0 ml-auto"
             >
-              undefined
+              €${"{:,.2f}".format(line.price_unit)}
             </p>
-            <p class="text-label-s text-primary-900 my-0">undefined</p>
-            <p class="text-neutral-500 mt-1 mb-0">CNNDLADNO2Q</p>
-          </div>
-          <div class="font-bold font-barlow italic uppercase">
-            <p class="text-neutral-700 my-0">
-              taglia:
-              <span class="text-primary-900">S</span>
-            </p>
-            <p class="text-neutral-700 my-0">
-              colore:
-              <span class="text-primary-900">silver dark</span>
-            </p>
-            <p class="text-neutral-700 my-0">
-              quantità:
-              <span class="text-primary-900"> undefined</span>
-            </p>
-          </div>
-        </td>
-
-        <td class="flex xs-hidden">
-          <p
-            class="text-primary-900 font-semibold font-barlow text-body-l my-0 ml-auto"
-          >
-            € 0
-          </p>
-        </td>
-      </tr>
-
-      <tr>
-        <td colspan="3" class="xs-flex hidden mt-4">
-          <span
-            class="text-primary-900 font-semibold font-barlow text-body-l my-0"
-          >
-            € 0
-          </span>
-        </td>
-      </tr>
+          </td>
+        </tr>
+      % endfor
 
       <tr>
         <td colspan="3" class="pt-12 xs-pt-10">
