@@ -11,7 +11,8 @@
   "
 >
   <div style="display: none !important">
-    Ciao undefined}, Abbiamo annullato il tuo ordine &#847; &#847; &#847; &#847;
+    Ciao ${object.partner_invoice_id.firstname}. Il tuo ordine è andato a buon
+    fine! &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
@@ -24,10 +25,9 @@
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
     &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
-    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
-    &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
   </div>
-  <table
+  <!-- <table
     style="
       width: 100%;
       background-color: #ffffff !important;
@@ -56,7 +56,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
   <table
     style="
       width: 100%;
@@ -101,7 +101,7 @@
     cellpadding="0"
   >
     <tbody>
-      <tr>
+      <!-- <tr>
         <td style="display: flex">
           <img
             style="
@@ -113,7 +113,7 @@
             src="http://assets.monferrato.bike/emails/images/mfb-logo-email.png"
           />
         </td>
-      </tr>
+      </tr> -->
 
       <tr>
         <td>
@@ -121,7 +121,7 @@
             style="
               font-style: italic;
               font-weight: 700;
-              margin-top: auto;
+              margin-top: 22px;
               margin-bottom: 44px;
               font-family: Archivo, sans-serif;
               margin-bottom: 16px;
@@ -184,9 +184,11 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+                    color: #515151 !important;
                   "
                 >
-                  ricevuto
+                  <b>ricevuto</b>
                 </p>
                 <div
                   style="
@@ -208,6 +210,8 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+                    color: #a1a1a1 !important;
                   "
                 >
                   in carico
@@ -232,6 +236,8 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+                    color: #a1a1a1 !important;
                   "
                 >
                   spedito
@@ -256,7 +262,8 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
-                    color: #515151 !important;
+                    font-size: 12px;
+                    color: #a1a1a1 !important;
                   "
                 >
                   arrivato
@@ -311,7 +318,7 @@
         <td align="center">
           <div style="display: flex !important">
             <a
-              href="undefined"
+              href="https://www.monferrato.bike/it/user/profile/orders"
               style="
                 margin-left: auto !important;
                 margin-right: auto !important;
@@ -684,6 +691,18 @@
         "
       >
         % if object.ecommerce_payment_method_id.type == 'bank':
+        <!-- <p
+          style="
+            display: none !important;
+            display: block !important;
+            color: #131313 !important;
+            font-weight: 600 !important;
+            font-size: 20px !important;
+            line-height: 33px !important;
+          "
+        >
+          Pagamento da effettuare
+        </p> -->
         <p style="margin-top: 0 !important; margin-bottom: 0 !important">
           Bonifico
           <br />
@@ -697,26 +716,15 @@
           <span style="font-weight: 700">IBAN</span>:
           ${object.ecommerce_payment_method_id.bank_options.iban}
           <br />
+
           % endif
         </p>
         % if object.ecommerce_payment_method_id.type == 'direct':
         <p style="margin-top: 0 !important; margin-bottom: 0 !important">
           Paypal
         </p>
-        % endif
 
-        <p
-          style="
-            display: none !important;
-            display: block !important;
-            color: #131313 !important;
-            font-weight: 600 !important;
-            font-size: 20px !important;
-            line-height: 33px !important;
-          "
-        >
-          Pagamento da effettuare
-        </p>
+        % endif
       </td>
     </tr>
 
