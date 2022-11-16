@@ -575,7 +575,8 @@
         "
       >
         <p>
-          ${object.partner_shipping_id.firstname}<br />
+          ${object.partner_shipping_id.firstname}
+          ${object.partner_shipping_id.lastname}<br />
           ${object.partner_shipping_id.street},
           ${object.partner_shipping_id.street2}<br />
           ${object.partner_shipping_id.state_id.name}
@@ -598,7 +599,8 @@
         "
       >
         <p>
-          ${object.partner_invoice_id.firstname}<br />
+          ${object.partner_invoice_id.firstname}
+          ${object.partner_invoice_id.lastname}<br />
           ${object.partner_invoice_id.street},
           ${object.partner_invoice_id.street2}<br />
           ${object.partner_invoice_id.state_id.name}
@@ -685,6 +687,20 @@
           Carta di credito <br />
         </p>
         % endif
+        <p
+          style="
+            font-size: 16px !important;
+            line-height: 23px !important;
+            color: #131313 !important;
+            text-transform: uppercase !important;
+            font-family: Archivo, sans-serif !important;
+            font-weight: 700 !important;
+            margin-top: 20px;
+            margin-bottom: 0px;
+          "
+        >
+          Pagato <br />
+        </p>
       </td>
     </tr>
 

@@ -10,7 +10,24 @@
     background-color: #ffffff !important;
   "
 >
-  <table
+  <div style="display: none !important">
+    Ciao ${object.partner_invoice_id.firstname}. Il tuo ordine è pronto da
+    ritirare in negozio! &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+    &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847; &#847;
+  </div>
+  <!-- <table
     style="
       width: 100%;
       background-color: #ffffff !important;
@@ -39,7 +56,7 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
   <table
     style="
       width: 100%;
@@ -84,7 +101,7 @@
     cellpadding="0"
   >
     <tbody>
-      <tr>
+      <!-- <tr>
         <td style="display: flex">
           <img
             style="
@@ -96,7 +113,7 @@
             src="http://assets.monferrato.bike/emails/images/mfb-logo-email.png"
           />
         </td>
-      </tr>
+      </tr> -->
 
       <tr>
         <td>
@@ -104,7 +121,7 @@
             style="
               font-style: italic;
               font-weight: 700;
-              margin-top: auto;
+              margin-top: 22px;
               margin-bottom: 44px;
               font-family: Archivo, sans-serif;
               margin-bottom: 16px;
@@ -118,7 +135,7 @@
               color: white;
             "
           >
-            Il tuo ordine è pronto per il ritiro in negozio
+            Il tuo ordine è pronto per il ritiro in negozio!
           </p>
         </td>
       </tr>
@@ -167,9 +184,11 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+                    color: #a1a1a1 !important;
                   "
                 >
-                  ricevuto
+                  <b>ricevuto</b>
                 </p>
                 <div
                   style="
@@ -191,6 +210,8 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+                    color: #a1a1a1 !important;
                   "
                 >
                   in carico
@@ -215,6 +236,8 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+                    color: #a1a1a1 !important;
                   "
                 >
                   spedito
@@ -239,6 +262,8 @@
                     text-align: center !important;
                     margin-left: auto !important;
                     margin-right: auto !important;
+                    font-size: 12px;
+
                     color: #515151 !important;
                   "
                 >
@@ -258,29 +283,70 @@
       </tr>
     </tbody>
   </table>
-
-  <tbody>
-    <tr>
-      <td>
-        <p
-          style="
-            font-family: Barlow, sans-serif !important;
-            font-weight: 400 !important;
-            font-size: 16px !important;
-            text-align: center !important;
-            line-height: 20.8px !important;
-            color: #000000 !important;
-            padding-bottom: 32px !important;
-            margin: 0 !important;
-          "
-        >
-          Ciao <b>${object.partner_invoice_id.firstname}</b>, il tuo ordine è
-          pronto da ritirare in negozio.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-
+  <table
+    style="
+      width: 100%;
+      background-color: #ffffff !important;
+      margin-top: 24px !important;
+      margin-bottom: 24px;
+      padding-bottom: 24px !important;
+    "
+    role="presentation"
+    cellspacing="0"
+    cellpadding="0"
+  >
+    <tbody>
+      <tr>
+        <td>
+          <p
+            style="
+              font-family: Barlow, sans-serif;
+              font-weight: 400 !important;
+              font-size: 16px !important;
+              line-height: 20.8px !important;
+              text-align: center !important;
+              margin: 12px !important;
+              color: #000000 !important;
+            "
+          >
+            Grazie <b>${object.partner_invoice_id.firstname}</b>, abbiamo
+            ricevuto il tuo ordine e lo stiamo preparando. Puoi controllare lo
+            stato dell&#039;ordine dal tuo&nbsp;profilo.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <div style="display: flex !important">
+            <a
+              href="https://www.monferrato.bike/it/user/profile/orders"
+              style="
+                margin-left: auto !important;
+                margin-right: auto !important;
+                font-family: Barlow, sans-serif !important;
+                font-weight: 700 !important;
+                font-style: italic !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+                padding-top: 12px !important;
+                padding-bottom: 12px !important;
+                background-color: #131313 !important;
+                color: #ffffff !important;
+                text-decoration-line: none !important;
+                text-transform: uppercase !important;
+                transform: skewX(-9.45deg);
+                display: flex !important;
+                flex-shrink: 1 !important;
+                text-align: center !important;
+              "
+            >
+              <span style="transform: skewX(9.45deg)">I miei ordini</span>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <table
     style="background-color: #f6f6f6; width: 100%; padding: 0 12px 56px 12px"
     cellpadding="0"
@@ -476,7 +542,6 @@
     </tr>
     % endfor
     <p></p>
-    % if object.shipping_method_id.delivery_type == 'shipped':
     <tr>
       <td
         colspan="3"
@@ -494,35 +559,10 @@
             margin-bottom: 0px;
           "
         >
-          Indirizzo e metodo di spedizione
+          Indirizzo
         </p>
       </td>
     </tr>
-    % endif
-    <p></p>
-    % if object.shipping_method_id.delivery_type == 'instore':
-    <tr>
-      <td
-        colspan="3"
-        style="padding-top: 48px !important; padding-top: 40px !important"
-      >
-        <p
-          style="
-            font-size: 14px !important;
-            line-height: 23px !important;
-            color: #131313 !important;
-            text-transform: uppercase !important;
-            font-family: Archivo, sans-serif !important;
-            font-weight: 700 !important;
-            margin-top: 0px;
-            margin-bottom: 0px;
-          "
-        >
-          Metodo di fatturazione
-        </p>
-      </td>
-    </tr>
-    % endif
     <p></p>
     % if object.shipping_method_id.delivery_type == 'shipped':
     <tr>
@@ -536,11 +576,8 @@
         "
       >
         <p>
-          ${object.shipping_method_id.name}
-          <br />
-        </p>
-        <p>
-          ${object.partner_shipping_id.firstname}<br />
+          ${object.partner_shipping_id.firstname}
+          ${object.partner_shipping_id.lastname}<br />
           ${object.partner_shipping_id.street},
           ${object.partner_shipping_id.street2}<br />
           ${object.partner_shipping_id.state_id.name}
@@ -563,11 +600,8 @@
         "
       >
         <p>
-          ${object.shipping_method_id.name}
-          <br />
-        </p>
-        <p>
-          ${object.partner_invoice_id.firstname}<br />
+          ${object.partner_invoice_id.firstname}
+          ${object.partner_invoice_id.lastname}<br />
           ${object.partner_invoice_id.street},
           ${object.partner_invoice_id.street2}<br />
           ${object.partner_invoice_id.state_id.name}
@@ -625,7 +659,7 @@
           font-weight: 400 !important;
         "
       >
-        % if object.ecommerce_payment_method_id.type == 'bank':
+        % if object.ecommerce_payment_method_id.method_identifier == 'bank':
         <p style="margin-top: 0 !important; margin-bottom: 0 !important">
           Bonifico
           <br />
@@ -639,26 +673,96 @@
           <span style="font-weight: 700">IBAN</span>:
           ${object.ecommerce_payment_method_id.bank_options.iban}
           <br />
-          % endif
-        </p>
-        % if object.ecommerce_payment_method_id.type == 'direct':
-        <p style="margin-top: 0 !important; margin-bottom: 0 !important">
-          Paypal
         </p>
         % endif
-
+        <p></p>
+        % if object.ecommerce_payment_method_id.method_identifier == 'paypal':
+        <p style="margin-top: 0 !important; margin-bottom: 0 !important">
+          Paypal <br />
+        </p>
+        % endif
+        <p></p>
+        % if object.ecommerce_payment_method_id.method_identifier
+        =='creditcard':
+        <p style="margin-top: 0 !important; margin-bottom: 0 !important">
+          Carta di credito <br />
+        </p>
+        % endif
         <p
           style="
-            display: none !important;
-            display: block !important;
+            font-size: 16px !important;
+            line-height: 23px !important;
             color: #131313 !important;
-            font-weight: 600 !important;
-            font-size: 20px !important;
-            line-height: 33px !important;
+            text-transform: uppercase !important;
+            font-family: Archivo, sans-serif !important;
+            font-weight: 700 !important;
+            margin-top: 20px;
+            margin-bottom: 0px;
           "
         >
-          Pagamento da effettuare
+          Pagato <br />
         </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td
+        colspan="3"
+        style="padding-top: 48px !important; padding-top: 40px !important"
+      >
+        <p
+          style="
+            font-size: 14px !important;
+            line-height: 23px !important;
+            color: #131313 !important;
+            text-transform: uppercase !important;
+            font-family: Archivo, sans-serif !important;
+            font-weight: 700 !important;
+            margin-top: 0px;
+            margin-bottom: 0px;
+          "
+        >
+          Metodo di spedizione
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div
+          style="
+            height: 2px !important;
+            width: 100% !important ;
+            background-color: #e2e2e2 !important;
+            margin-top: 16px !important;
+            margin-top: 4px !important;
+            margin-bottom: 8px !important;
+            margin-bottom: 16px !important;
+          "
+        ></div>
+      </td>
+    </tr>
+
+    <tr style="font-family: Barlow, sans-serif !important">
+      <td
+        colspan="2"
+        style="
+          color: #646464 !important;
+          font-size: 16px !important;
+          line-height: 20.8px !important;
+          font-weight: 400 !important;
+        "
+      >
+        % if object.shipping_method_id.delivery_type == 'instore':
+        <p style="margin-top: 0 !important; margin-bottom: 0 !important">
+          Ritiro in negozio
+        </p>
+        % endif
+        <p></p>
+        % if object.shipping_method_id.delivery_type == 'shipped':
+        <p style="margin-top: 0 !important; margin-bottom: 0 !important">
+          Spedito (€${"{:,.2f}".format(object.shipping_method_id.price)})
+        </p>
+        % endif
       </td>
     </tr>
 
@@ -710,7 +814,7 @@
             margin-bottom: 0 !important;
           "
         >
-          (inclusi IVA €${"{:,.2f}".format(object.amount_total)})
+          (Subtotale €${"{:,.2f}".format(object.amount_untaxed)})
         </p>
         <p
           style="
@@ -724,7 +828,7 @@
             margin-bottom: 0 !important;
           "
         >
-          €${"{:,.2f}".format(object.amount_untaxed)}
+          €${"{:,.2f}".format(object.amount_total)}
         </p>
       </td>
       <td style="display: flex !important">
@@ -740,7 +844,7 @@
             margin-bottom: 0 !important;
           "
         >
-          €${"{:,.2f}".format(object.amount_untaxed)}
+          €${"{:,.2f}".format(object.amount_total)}
         </p>
       </td>
     </tr>
@@ -860,7 +964,7 @@
                 text-decoration-line: underline !important;
                 color: #131313 !important;
               "
-              href="http://monferato.bike/emails/confirmation.html?user=undefined&token=undefined"
+              href="https://www.monferrato.bike/it/"
             >
               monferrato.bike
             </a>
