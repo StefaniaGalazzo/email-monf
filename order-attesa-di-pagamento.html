@@ -11,8 +11,7 @@
   "
 >
   <div style="display: none !important">
-    Ciao ${object.partner_invoice_id.firstname}. Il tuo ordine è andato a buon
-    fine! 
+    Ciao ${object.partner_invoice_id.firstname}. Ordine ricevuto in attesa di pagamento.
   </div>
   <!-- <table
     style="
@@ -122,7 +121,7 @@
               color: white;
             "
           >
-            Il tuo ordine è andato a buon fine!
+          Ordine ricevuto in attesa di pagamento!
           </p>
         </td>
       </tr>
@@ -668,7 +667,7 @@
         </p>
         % endif
         <p></p>
-        % if object.ecommerce_payment_method_id.method_identifier == 'creditcard':
+        % if object.ecommerce_payment_method_id.method_identifier =='creditcard':
         <p style="margin-top: 0 !important; margin-bottom: 0 !important">
           Carta di credito <br />
         </p>
@@ -685,7 +684,7 @@
             margin-bottom: 0px;
           "
         >
-          Pagato <br />
+          IN ATTESA DI PAGAMENTO <br />
         </p>
       </td>
     </tr>
